@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
         LoaderManager loaderManager = getSupportLoaderManager();
         loaderManager.initLoader(COOLIE_ID,specialInstructions,this);
-
+        //data to pull from github
         /*ContentResolver contentResolver = getContentResolver();
         Uri allCalls = Uri.parse("content://call_log/calls");
         Uri contacts = ContactsContract.Contacts.CONTENT_URI;
