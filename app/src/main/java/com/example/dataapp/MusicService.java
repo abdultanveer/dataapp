@@ -26,6 +26,7 @@ public class MusicService extends Service {
         Toast.makeText(this, "started", Toast.LENGTH_SHORT).show();
         MediaPlayer player = MediaPlayer.create(this, R.raw.music);
         player.start();
+       // stopSelf();
         return  Service.START_STICKY;
     }
 
@@ -33,5 +34,12 @@ public class MusicService extends Service {
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "destroyed", Toast.LENGTH_SHORT).show();
+
     }
 }

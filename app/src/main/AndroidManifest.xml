@@ -15,8 +15,8 @@
         android:theme="@style/AppTheme">
         <service
             android:name=".MusicService"
-            android:enabled="true"
-            ></service>
+            android:enabled="true" />
+        <service android:name=".MyIntentService" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

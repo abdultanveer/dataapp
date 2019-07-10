@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public static int COOLIE_ID = 007;
     Bundle specialInstructions;
     SimpleCursorAdapter adapter;
+
+    public  static String KEY = "mykey";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +75,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public void handleClick(View view) {
 
-        Intent serviceIntent = new Intent(this,MusicService.class);
+       Intent serviceIntent = new Intent(this,MyIntentService.class);
+       serviceIntent.putExtra(KEY,"url to download some data");
         startService(serviceIntent);
+        //stopService(serviceIntent);
+
     }
 }
