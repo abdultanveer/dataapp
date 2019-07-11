@@ -14,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
+            android:name=".BoundService"
+            android:enabled="true"
+            android:exported="false"></service>
+        <service
             android:name=".MusicService"
             android:enabled="true" />
         <service android:name=".MyIntentService" />
