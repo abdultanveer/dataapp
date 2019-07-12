@@ -23,7 +23,7 @@ public class FetchBook extends AsyncTask<String,Void,String> {
 
     @Override
     protected String doInBackground(String... strings) {// 5 returning bookStringjson
-        return NetworkUtils.getBookInfo(strings[0]);//2  mQueryString
+        return NetworkUtils.getBookInfoVolley(strings[0]);//2  mQueryString
     }
 
     @Override

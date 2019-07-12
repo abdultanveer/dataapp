@@ -3,6 +3,13 @@ package com.example.dataapp.data.remote;
 import android.net.Uri;
 import android.util.Log;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
+import com.example.dataapp.AppController;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -86,4 +93,32 @@ completed buffer for debugging. */
        }
        return bookJSONString; //4
    }
+
+    public static String getBookInfoVolley(String queryString){
+        String  tag_string_req = "string_req";
+
+        String url = "https://www.googleapis.com/books/v1/volumes?q=pride+prejudice&maxResults=5&printType=books";
+        StringRequest strReq = new StringRequest(Request.Method.GET,
+                url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(LOG_TAG, response.toString());
+
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d(LOG_TAG, "Error: " + error.getMessage());
+            }
+        });
+
+// Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+        return "";
+    }
+
+
 }
