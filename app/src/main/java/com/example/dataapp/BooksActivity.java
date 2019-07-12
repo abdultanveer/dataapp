@@ -22,6 +22,6 @@ public class BooksActivity extends AppCompatActivity {
         String mQueryString = mBookInput.getText().toString();
         TextView mAuthorText = findViewById(R.id.mAuthorText);
         TextView mTitleText = findViewById(R.id.mTitleText);
-        new FetchBook(mTitleText, mAuthorText).execute(mQueryString);
+        new FetchBook(mTitleText, mAuthorText).execute(mQueryString);//1
     }
 }

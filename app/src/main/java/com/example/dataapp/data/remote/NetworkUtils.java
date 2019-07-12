@@ -23,10 +23,12 @@ public class NetworkUtils {
 
 
 
-   public static String getBookInfo(String queryString){
+   public static String getBookInfo(String queryString){//3
        String bookJSONString = "";
        HttpURLConnection urlConnection = null;
        BufferedReader reader = null;
+
+       //String url = "https://www.googleapis.com/books/v1/volumes?q=pride+prejudice&maxResults=5&printType=books"
 
        Uri builtURI = Uri.parse(BOOK_BASE_URL).buildUpon()
                .appendQueryParameter(QUERY_PARAM, queryString)
@@ -41,9 +43,10 @@ public class NetworkUtils {
            urlConnection.connect();
 
            InputStream inputStream = urlConnection.getInputStream();
+
+
            StringBuffer buffer = new StringBuffer();
            if (inputStream == null) {
-// Nothing to do.
                return null;
            }
             reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -81,6 +84,6 @@ completed buffer for debugging. */
                }
            }
        }
-       return bookJSONString;
+       return bookJSONString; //4
    }
 }

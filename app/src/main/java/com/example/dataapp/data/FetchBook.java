@@ -22,13 +22,14 @@ public class FetchBook extends AsyncTask<String,Void,String> {
 
 
     @Override
-    protected String doInBackground(String... strings) {
-        return NetworkUtils.getBookInfo(strings[0]);
+    protected String doInBackground(String... strings) {// 5 returning bookStringjson
+        return NetworkUtils.getBookInfo(strings[0]);//2  mQueryString
     }
 
     @Override
-    protected void onPostExecute(String jsonString) {
+    protected void onPostExecute(String jsonString) {//6 bookStringjson
         super.onPostExecute(jsonString);
+
         JSONObject jsonObject = null;
         try {
             jsonObject = new JSONObject(jsonString);
